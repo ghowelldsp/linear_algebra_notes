@@ -1,0 +1,591 @@
+\section{Vector Space and Subspaces}
+    
+    \subsection{Spaces of Vectors}
+        
+        \subsubsection{Vector Spaces}
+            A vector is a \textit{space} which contains all possible linear combinations of these vectors. For a real
+            valued vector space the notation is \(R^n\) and for a complex valued vector \(C^n\). The power \(n\) refers
+            to the number of components in vector, the dimension.
+            \par \hfill \break
+            For example, an \(R^2\) vector space contains vectors such as,
+            \begin{equation}
+                \begin{bmatrix}
+                    -1 \\
+                    4
+                \end{bmatrix}
+                ,
+                \begin{bmatrix}
+                    1 \\
+                    10
+                \end{bmatrix}
+                \ \textrm{and} \
+                \begin{bmatrix}
+                    \pi \\
+                    e
+                \end{bmatrix}
+            \end{equation}
+            These, along with \textbf{all possible} linear combinations of these vectors, in terms of vector addition 
+            and multiplication by a scaler,
+            \begin{equation}
+                \boldsymbol{v} + \boldsymbol{w}
+                \quad \textrm{and} \quad
+                c \boldsymbol{v}
+            \end{equation}
+            that lie in the \((x,y)\) plane. It should be noted that the any space must contain the zero vector, as any
+            vector multiplied by \(0\) results in the zero vector.
+
+            \par \hfill \break
+            An example of the \(R^3\) vector space would be,
+            \begin{equation}
+                \begin{bmatrix}
+                    2 \\ 5 \\ 4
+                \end{bmatrix}
+                \quad \textrm{and} \quad
+                \begin{bmatrix}
+                    4 \\ -6 \\ 0
+                \end{bmatrix}
+            \end{equation}
+            As an example that is not a vector space would be the positive \((x,y)\), so a quarter of the full 
+            \((x,y)\). While the vector \(\begin{bmatrix} 2 & 3 \end{bmatrix}^T\) would correctly lie in the space,
+            multipling this by \(-1\) would result in \(\begin{bmatrix} -2 & -3 \end{bmatrix}^T\), which lie outside
+            this space.
+
+        \subsubsection{Subspaces}
+            In a vector space, \(R^n\), there are subspaces of the space. For the vector space \(R^2\), which occupies 
+            the full \(x,y\) plane, a subspace would contain vectors that occupy a line in the \(R^2\) vector space.
+
+            \par \hfill \break
+            For example, the vectors \(\begin{bmatrix} 2 & 3 \end{bmatrix}^T\) and 
+            \(\begin{bmatrix} 4 & 6 \end{bmatrix}^T\) lie in the same subspace, a line, in the \(R^2\) vector space. 
+            Any linear combination of these vectors, of any other vectors which lie on the line, results in a vector 
+            which also lies on the line, hence in the same subspace. The subspace must go through the origin as any 
+            vector can be multiplied by 0 resulting in the zero vector.
+
+            \par \hfill \break
+            Therefore, all the subspaces of the \(R^2\) vector space are;
+            \begin{enumerate}
+                \item All of \(R^2\)
+                \item Any \textbf{line} through the origin \(\begin{bmatrix} 0 & 0 \end{bmatrix}^T\)
+                \item The zero vector only, \(\begin{bmatrix} 0 \end{bmatrix}\)
+            \end{enumerate}
+            For the vector space \(R^3\), the subspaces are;
+            \begin{enumerate}
+                \item All of \(R^3\)
+                \item Any \textbf{plane} through the origin \(\begin{bmatrix} 0 & 0 & 0 \end{bmatrix}^T\)
+                \item Any \textbf{line} through the origin \(\begin{bmatrix} 0 & 0 & 0\end{bmatrix}^T\)
+                \item The zero vector only, \(\begin{bmatrix} 0 \end{bmatrix}\)
+            \end{enumerate}
+        
+        \subsubsection{The Column Space of \(\boldsymbol{A}\)}
+            Firstly, remembering that \(A\boldsymbol{x}=\boldsymbol{b}\) can be expressed as a linear combination of
+            all the possible columns of \(A\), such that,
+            \begin{equation}
+                A\boldsymbol{x} = [\boldsymbol{a}_1]x_1 +
+                [\boldsymbol{a}_2]x_2 + ... + [\boldsymbol{a}_n]x_n
+                = \boldsymbol{b}
+            \end{equation}
+            Then the \textbf{column space} of A consists of the all these linear combinations of the columns, which 
+            fill the whole column space denoted as \(C(A)\).
+
+            \par \hfill \break
+            As the vector \(\boldsymbol{b}\) is a linear combination of the column space vectors, this implies that a 
+            solution can only be found if \(\boldsymbol{b}\) is in the column space of \(A\).
+
+            \par \hfill \break
+            As an example,
+            \begin{equation}
+                A\boldsymbol{x} =
+                \begin{bmatrix}
+                    1 & 0 \\
+                    4 & 3 \\
+                    2 & 3
+                \end{bmatrix}
+                \begin{bmatrix}
+                    x_1 \\ 
+                    x_2 
+                \end{bmatrix}
+                = 
+                \begin{bmatrix}
+                    1 \\
+                    4 \\
+                    2
+                \end{bmatrix}
+                x_1 +
+                \begin{bmatrix}
+                    0 \\
+                    3 \\
+                    3
+                \end{bmatrix}
+                x_2 =
+                \boldsymbol{b}
+            \end{equation}
+            The column space of \(A\) is a subspace of \(R^3\), as the columns space vector has 3 components, and not 
+            \(R^2\). As the example has two column vectors, the columns space of \(A\) cannot fill the entire \(R^3\) 
+            space, but instead fills up a plane in \(R^3\), a subspace.
+
+            Again, a solution for the \(x\) coefficients can only be found if the resultant vector \(\boldsymbol{b}\) 
+            lies within the column space. Hence, a vector of \(\begin{bmatrix} 1  & 4 & 2 \end{bmatrix}^T\) would 
+            result in a solution as it is one of the columns vectors of \(A\).
+            \begin{equation}
+                A\boldsymbol{x}=\boldsymbol{b} \quad \textrm{so} \quad
+                \begin{bmatrix}
+                    1 & 0 \\
+                    4 & 3 \\
+                    2 & 3
+                \end{bmatrix}
+                \begin{bmatrix}
+                    1 \\ 0
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                    1 \\
+                    4 \\
+                    2
+                \end{bmatrix}
+            \end{equation}
+    
+    \subsection{The Nullspace of \(\boldsymbol{A}\)}
+            
+        \subsubsection{Special Solution}
+            The nullspace \(N(A)\) consists of all the solutions to \(A\boldsymbol{x}=0\), with these being in a 
+            subspace of \(R^n\)
+
+            \par \hfill \break
+            As an example, the nullspace of the matrix is first evaluated by applying elimination,
+            \begin{equation}
+                A = 
+                \begin{bmatrix}
+                    1 & 2 \\
+                    3 & 6
+                \end{bmatrix}
+                \quad \textrm{the using elimination} \quad
+                \begin{bmatrix}
+                    1 & 2 \\
+                    0 & 0
+                \end{bmatrix}
+            \end{equation}
+            So the equations are,
+            \begin{equation}
+                \begin{aligned}
+                    x_1 + 2x_2 &= 0 \\
+                    0 &= 0
+                \end{aligned}
+            \end{equation}
+            As the matrix has a zero in the second pivot position, hence being singular, the inverse does not exist and
+            no exact solution can be found. Instead, the solution can be described as lying in a line \(R^2\).
+
+            \par \hfill \break
+            To describe this solution a point is chosen, a \textbf{special solution}, and then all points on the line 
+            are multiples of this. In this example the second component is chosen to be \(x_2=1\), hence \(x_1=-2\), 
+            and the special solution is then \(\begin{bmatrix} -2 & 1 \end{bmatrix}^T\).
+
+            \par \hfill \break
+            So, the nullspace of \(A = \begin{bmatrix} 1 & 2 \\ 3 & 8\end{bmatrix}\) contains all the multiplies of
+            the special solution \(\begin{bmatrix} -2 \\ 1 \end{bmatrix}\).
+
+            \par \hfill \break
+            As another example, using a matrix that is non-singular and hence a full rank of pivots after elimination, 
+            results in the solution of \(x_1=0\) and \(x_2=0\). This is a single point and so the nullspace is simply 
+            \(Z\), which is an important result as it indicates that all columns of the matrix are independent.
+            \begin{equation}
+                A = 
+                \begin{bmatrix}
+                    1 & 2 \\
+                    3 & 8
+                \end{bmatrix}
+                \quad \textrm{the using elimination} \quad
+                \begin{bmatrix}
+                    1 & 2 \\
+                    0 & 2
+                \end{bmatrix}
+            \end{equation}
+
+        \subsubsection{Pivot Columns and Free Columns}
+            What can be seen in the first example in the previous section is that elimination has produced a matrix 
+            that has both \textbf{pivot columns} and \textbf{free columns}, defined as;
+            \begin{itemize}
+                \item \textbf{Pivot Columns} – columns of the matrix that contain a pivot
+                \item \textbf{Free Columns} – columns of the matrix that do not contain a pivot
+            \end{itemize}
+            So, from the last example the pivot and free columns would be,
+            \begin{equation}
+                EA = 
+                \begin{bmatrix}
+                    1 & 2 \\
+                    0 & 0
+                \end{bmatrix}
+                \quad \textrm{where the pivot column is} \quad
+                \begin{bmatrix}
+                    1 \\ 0
+                \end{bmatrix}
+                \quad \textrm{and the free column is} \quad
+                \begin{bmatrix}
+                    2 \\ 0
+                \end{bmatrix}
+            \end{equation}
+            And the respective pivot and free variables rows in the solution vector \(x\) are,
+            \begin{equation}
+                \boldsymbol{s} = 
+                \begin{bmatrix}
+                    -2 \\ 1
+                \end{bmatrix}
+                \quad \textrm{where the pivot variable is} \ -2 \ \textrm{and the free variable is} \ 1
+            \end{equation}
+            On further inspection, it can be seen that the pattern to finding the special solution is to swap the
+            values in the pivot and free columns over, while negating the pivot varible, to get the pivot and free
+            variables of the solution.
+
+        \subsubsection{The Reduced Row Echelon Form}
+            The reduced row echelon matrix if formed by performing further elimination on the upper triangular matrix 
+            to produce zeros above the pivots. Then each pivot row is divided by itself to produce an identity matrix 
+            along the pivot axes only, and various coefficient values in the free columns.
+
+            \par \hfill \break
+            The steps of producing the reduced row echelon form can be summed up as \(N(A) \rightarrow N(U) 
+            \rightarrow N(R)\).
+
+            \par \hfill \break
+            Again, using the example in the last section, it can be seen that no more elimination or division is
+            required and so \(U=R\), and the pivot column, the first column, contains an identity matrix, whereas the 
+            free column, the second column, contains a coefficient.
+            \begin{equation}
+                R = 
+                \begin{bmatrix}
+                    1 & 2 \\
+                    0 & 0
+                \end{bmatrix}
+            \end{equation}
+            An example of finding the reduced row echelon form from another \(U\) matrix is,
+            \begin{equation}
+                U = 
+                \begin{bmatrix}
+                    1 & 2 & 2 & 4 \\
+                    0 & 2 & 0 & 4
+                \end{bmatrix}
+                \quad \textrm{becomes} \quad
+                R = 
+                \begin{bmatrix}
+                    1 & 0 & 2 & 0 \\
+                    0 & 1 & 0 & 2
+                \end{bmatrix}
+            \end{equation}
+            In this case, the first and second columns are the pivot columns and form the identity matrix, whereas the 
+            third and fourth columns are the free columns.
+
+        \subsubsection{The Full Picture of Finding the Nullspace}
+            The relationship between the Echelon matrix and the locations of the pivot and free varibles in the special
+            solution can be seen as a relationship between the pivot columns and the free rows. Given the matrix,
+            \begin{equation}
+                R = 
+                \begin{bmatrix}
+                    \boldsymbol{1} & 0 & a & 0 & c \\
+                    0 & \boldsymbol{1} & b & 0 & d \\
+                    0 & 0 & 0 & \boldsymbol{1} & e \\
+                    0 & 0 & 0 & 0 & 0
+                \end{bmatrix}
+                \ \textrm{with the special solutions} \ s_1 =
+                \begin{bmatrix}
+                    -a \\ -b \\ \boldsymbol{1} \\ 0 \\ \boldsymbol{0}
+                \end{bmatrix}
+                \ \textrm{with the special solutions} \ s_2 =
+                \begin{bmatrix}
+                    -c \\ -d \\ \boldsymbol{0} \\ -e \\ \boldsymbol{1}
+                \end{bmatrix}
+            \end{equation}
+            with the pivot variables in bold. 
+
+            \par \hfill \break
+            As can be seen, the pivot and free columns in the reduced row echelon matrix \(R\) are in the opposite 
+            positions in the special solutions, where they form an identity matrix, hence there are as many special
+            solutions as there as free columns.
+
+            The order of the free coefficients in the special solutions are in the order of the free rows, offset by 
+            any pivot values, as can be seen with the coefficient \(e\). Remembering that the special solution solves 
+            the nullspace of \(A\boldsymbol{x}=0\), it can be seen that the negated values of the coefficients in the
+            special solutions act cancel out their counterparts in the reduced row echelon form when the dot product of
+            \(A\boldsymbol{x}\) resulting in the nullspace as expected.
+
+        \subsubsection{The Rank of a Matrix}
+            The true size of a matrix cannot be defined by the number of rows and columns, given that, for example, the 
+            matrix could contain identical rows. The true size of a matrix is given by its rank, defined as the number 
+            of pivots in the matrix. For example, the matrix in the last section would be of rank \(r = 3\), as it 
+            contains three pivots. 
+
+    \subsection{The Complete Solution to \(\boldsymbol{Ax=b}\)}
+        This section deals with sets of equations where the RHS is now not zero, but the vector \(\boldsymbol{b}\). In 
+        this case, the proceeding elimination steps should act on the augmented matrix \(\begin{bmatrix} A & 
+        \boldsymbol{b}\end{bmatrix}\). For example, given the matrix equations below, the augmented version of the matrix 
+        is formed as follows,
+        \begin{equation}
+            A\boldsymbol{x} = \boldsymbol{b} \rightarrow
+            \begin{bmatrix}
+                1 & 3 & 0 & 2 \\
+                0 & 0 & 1 & 4 \\
+                1 & 3 & 1 & 6
+            \end{bmatrix}
+            \begin{bmatrix}
+                x_1 \\ x_2 \\ x_3 \\ x_4
+            \end{bmatrix}
+            =
+            \begin{bmatrix}
+                1 \\ 6 \\ 7
+            \end{bmatrix}
+            \rightarrow
+            \begin{bmatrix}
+                \begin{array}{cccc|c}
+                    1 & 3 & 0 & 2 & 1 \\
+                    0 & 0 & 1 & 4 & 6 \\
+                    1 & 3 & 1 & 6 & 7
+                \end{array}
+            \end{bmatrix}
+        \end{equation}
+        Elimination is then performed on the augmented version of the matrix in the usual manor, such that,
+        \begin{equation}
+            \begin{bmatrix}
+                R & \boldsymbol{d}
+            \end{bmatrix}
+            =
+            \begin{bmatrix}
+                \begin{array}{cccc|c}
+                    1 & 3 & 0 & 2 & 1 \\
+                    0 & 0 & 1 & 4 & 6 \\
+                    0 & 0 & 0 & 0 & 0
+                \end{array}
+            \end{bmatrix}
+        \end{equation}
+          
+        \subsubsection{One Particular Solution and the Complete Solution}
+            One particular solution to the equations may be found by setting the free variables to zero and the pivot 
+            variables from \(\boldsymbol{d}\). Taking the example from the last section, the free variables are set to 
+            zero and the pivot variables (in bold) are set to \(1\) and \(6\).
+            \begin{equation}
+                \begin{bmatrix}
+                    R & \boldsymbol{x}_p
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                    \boldsymbol{1} & 3 & \boldsymbol{0} & 2 \\
+                    \boldsymbol{0} & 0 & \boldsymbol{1} & 4 \\
+                    0 & 0 & 0 & 0
+                \end{bmatrix}
+                \begin{bmatrix}
+                    \boldsymbol{1} \\ 0 \\ \boldsymbol{6} \\ 0
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                    \boldsymbol{1} \\ \boldsymbol{6} \\ \boldsymbol{0}
+                \end{bmatrix}
+            \end{equation}
+            The complete solution is the combination of the particular solution and the nullspace solution, so
+            \begin{equation}
+                \boldsymbol{x} = \boldsymbol{x}_p + \boldsymbol{x}_n
+            \end{equation}
+            where
+            \begin{equation}
+                \begin{split}
+                    &\boldsymbol{x}_p \ \textrm{the particular solution that solves} \ A\boldsymbol{x}_p = \boldsymbol{b}
+                    \textrm{, and} \\
+                    &\boldsymbol{x}_n \ \textrm{the \(n-r\) solution that solves} \ A\boldsymbol{x}_p = 0                   
+                \end{split}
+            \end{equation}
+            The nullspace has been seen in the last section, and for this matrix, as there are two free columns, then 
+            there will be two special solutions. The complete solution for the example above takes the form of,
+            \begin{equation}
+                \boldsymbol{x} = \boldsymbol{x}_p + \boldsymbol{x}_n = 
+                \begin{bmatrix}
+                    1 \\ 0 \\ 6 \\ 0
+                \end{bmatrix}
+                + x_2
+                \begin{bmatrix}
+                    -3 \\ 1 \\ 0 \\ 0
+                \end{bmatrix}
+                + x_4
+                \begin{bmatrix}
+                    -2 \\ 0 \\ -4 \\ 1
+                \end{bmatrix}
+            \end{equation}
+        
+        \subsubsection{Full Columns Rank}
+            An example of a matrix that produces full column rank is seen below,
+            \begin{equation}
+                [A|\boldsymbol{b}]=
+                \begin{bmatrix}
+                    \begin{array}{cc|c}
+                        1 & 1 & 2 \\
+                        1 & 2 & 3 \\
+                        -2 & -3 & 4 \\
+                    \end{array}
+                \end{bmatrix} 
+                \quad \rightarrow \quad [R|\boldsymbol{b}]=
+                \begin{bmatrix}
+                    \begin{array}{cc|c}
+                        1 & 0 & 1 \\   
+                        0 & 1 & 1 \\
+                        0 & 0 & 9 \\
+                    \end{array}
+                \end{bmatrix}
+            \end{equation}
+            Therefore, the particular solution is just, 
+            \begin{equation}
+                \boldsymbol{x}_p = \begin{bmatrix}
+                1 \\
+                1 \\
+                \end{bmatrix}
+            \end{equation}
+            And as there are no free variables, the solution to the nullspace is only the zero vector, so the complete 
+            solution is just the particular solution.
+
+            \par \hfill \break
+            Every matrix with full column rank \( r=n \) has these properties:
+            \begin{enumerate}
+                \item All columns of \( A \) are pivot columns.
+                \item There are no free variables or special solutions.
+                \item The nullspace contains only the zero vector, \( N(A)=0 \).
+                \item If \(A\boldsymbol{x}=\boldsymbol{b} \) has a solution, then it only has one solution.
+            \end{enumerate}
+
+        \subsubsection{Full Columns Rank}
+
+            TODO - add an example
+
+            \par \hfill \break
+            Every matrix with full row rank \( r=m \) has these properties:
+            \begin{enumerate}
+                \item All rows have pivots, and \( R \) has no zeros.
+                \item \( A\boldsymbol{x}=\boldsymbol{b} \) has a solution for every right side \(\boldsymbol{b}\).
+                \item The column space is the whole space \(R^m \).
+                \item There are \( n-r=n-m \) special solutions in the nullspace of \( A \).
+            \end{enumerate}
+        
+    \subsection{Independence, Basis and Dimension}
+
+        \subsubsection{Linear Independent}
+            Vectors are said to be linearly independent of one another if the only solution to \( \boldsymbol{Ax} = 0\) 
+            is \( \boldsymbol{x} = \boldsymbol{0} \) (the zero vector).
+
+            \par \hfill \break
+            A sequence of vectors is said to be linearly independent if the only combination that gives the zero vector
+            results in all the \(x\)'s being \(0\), such that,
+            \begin{equation}
+                x_1 \boldsymbol{v}_1 + x_2 \boldsymbol{v}_2 + \cdots + x_n \boldsymbol{v}_n = \boldsymbol{0}
+                \quad \textrm{only when all \(x\)'s are} \ 0 
+            \end{equation}
+            The columns of \( A \) are independent exactly when the rank is \( r = n \), hence there are \( n \) pivots
+            and no free variables, and only \( \boldsymbol{x} = \boldsymbol{0} \) is in the nullspace.
+        
+        \subsubsection{Vectors that Span a Subspace}
+            A set of vectors spans a space if their linear combinations fill the space.
+            
+            \par \hfill \break
+            For example, the vectors 
+            \begin{equation}
+                \boldsymbol{v}_1 = 
+                \begin{bmatrix} 
+                    1 \\ 0 
+                \end{bmatrix} 
+                \ \textrm{and} \ \boldsymbol{v}_2 = 
+                \begin{bmatrix} 
+                    0 \\ 1 
+                \end{bmatrix} 
+                \textrm{span the full 2D space} \ R^2
+            \end{equation}
+            and
+            \begin{equation}
+                \boldsymbol{v}_1 = 
+                \begin{bmatrix} 
+                    1 \\ 1 
+                \end{bmatrix} 
+                \ \textrm{and} \ \boldsymbol{v}_2 = 
+                \begin{bmatrix} 
+                    -1 \\ -1 
+                \end{bmatrix} 
+                \textrm{only spans a line in} \ R^2 \ \textrm{(as \(\boldsymbol{v}_1 = -\boldsymbol{v}_2\))}
+            \end{equation}
+
+        \subsubsection{Row Space}
+            Like the column space of a matrix, the row space is the subspace of \(R^n\) spanned by the rows. This can 
+            be defined as the column space of transpose of the matrix, \(C(A^T)\).
+
+            \par \hfill \break
+            For example,
+            \begin{equation}
+                A = \begin{bmatrix} 1 & 4 \\ 2 & 7 \\ 3 & 5 \end{bmatrix}
+                \quad \textrm{then} \quad
+                A^T = \begin{bmatrix} 1 & 2 & 3 \\ 4 & 7 & 5 \end{bmatrix}
+            \end{equation}
+            Then the column space of \(A\) is a plane in \(R^3\), and the row space of \(A\) is all of \(R^2\).
+
+        \subsubsection{A Basis for a Vector Space}
+            Two vectors cannot span all of \(R^3\), even if they are independent, and four vectors cannot be 
+            independent in \(R^3\). A \textbf{basis} is enough vectors to span the space and no more. The
+            \textbf{basis} vectors are linearly independent and span the space.
+
+            \par \hfill \break
+            An obvious example for the basis for the space \(R^2\) are the vectors \(\begin{bmatrix} 1 & 0 
+            \end{bmatrix}^T\) and \(\begin{bmatrix} 0 & 1 \end{bmatrix}^T\), however there can be an infinite number 
+            of variations, as long as they are independent and span the space.
+            
+            \par \hfill \break
+            Another example is,
+            \begin{equation}
+                R = 
+                \begin{bmatrix}
+                    1 & 2 & 0 & 3 \\
+                    0 & 0 & 1 & 4 \\
+                    0 & 0 & 0 & 0
+                \end{bmatrix}
+            \end{equation}
+            Here, there are only two basis vectors which form a subspace within \(R^3\), columns \(1\) and \(3\). 
+            Columns \(2\) and \(3\) also form a basis for the same subspace. Therefore, a method to find a basis of 
+            another matrix is to first find the reduced row echelon form and take the pivot columns, which will be a 
+            basis of the column space.
+
+        \subsubsection{Dimension of a Vector Space}
+            The dimension of a space is the number of vectors in every basis.
+
+            \par \hfill \break
+            TODO - add more
+
+    \subsection{Dimensions of the Four Subspaces}
+        The main theorem in this chapter connects the rank and dimension of a matrix. The rank being the number of 
+        pivots in a matrix, and a dimension of a subspace is the number of vectors in a basis. The rank of \(A\) 
+        reveals the dimensions of all four subspaces.
+        
+        \par \hfill \break
+        The four fundamental subspaces are;
+        \begin{enumerate}
+            \item The row space is \(C(A^T)\) and is a subspace of \(R^n\).
+            \item The column space is \(C(A)\) and is a subspace of \(R^m\).
+            \item The nullspace is \(N(A)\) and is a subspace of \(R^n\).
+            \item The left nullspace is \(N(A^T)\) and is a subspace of \(R^m\).
+        \end{enumerate}
+        
+        \par \hfill \break
+        The row and column space both have the same rank \(r\), and hence both have the same dimension. The nullspace 
+        has a dimension of \(n-r\), and the left nullspace has the dimension of \(m-r\).
+        
+        \par \hfill \break
+        An example proving this for a basic matrix is seen below, it has 3 rows, 5 columns and a rank of 2.
+        \begin{equation}
+            R = 
+            \begin{bmatrix}
+                1 & 3 & 5 & 5 & 7 \\
+                0 & 0 & 0 & 1 & 2 \\
+                0 & 0 & 0 & 0 & 0
+            \end{bmatrix}
+        \end{equation}
+        The row space has two pivot rows and so a rank of 2, and dimension of 2. The column space also has two pivot 
+        columns, a rank of 2 and again a dimension of 2. As expected, the row and column space have the same 
+        dimensions.
+        
+        \par \hfill \break
+        As the matrix contains 2 pivot column vectors and 3 free vectors the nullspace contains 3 special solutions. 
+        With the number of columns being 5, and the rank of the matrix 2, the dimension is then \(n-r=5-2=3\).
+        
+        \par \hfill \break
+        As the matrix contains 2 pivot row vectors and 1 free vector the left nullspace contains 1 special solution. 
+        With the number of rows being 3, and the rank of the matrix 2, the dimension is then \(m-r=3-2=1\).
+        
+        \par \hfill \break
+        TODO - Say something about Rank One and Two Forms
+    

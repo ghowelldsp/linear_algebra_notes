@@ -1,0 +1,198 @@
+\section{Vectors and Matrices}
+    
+    \subsection{Vectors}
+        Vector Addition
+        \begin{equation}
+            \boldsymbol{v} + \boldsymbol{w} = 
+            \begin{bmatrix}
+                v_1 \\
+                v_2
+            \end{bmatrix}
+            +
+            \begin{bmatrix}
+                w_1 \\
+                w_2
+            \end{bmatrix}
+            =
+            \begin{bmatrix}
+                v_1 + w_1 \\
+                v_2 + w_2
+            \end{bmatrix}
+        \end{equation}
+        Scalar Multiplcation
+        \begin{equation}
+            2\boldsymbol{v} = 
+            \begin{bmatrix}
+                2v_1 \\
+                2v_2
+            \end{bmatrix}
+        \end{equation}
+
+    \subsection{Matrices}
+
+        \subsubsection{Matrix Multiplcation}
+            A linear combination of three column vectors is seen as, 
+            \begin{equation}
+                x_1
+                \begin{bmatrix}
+                    1 \\
+                    -1 \\
+                    0
+                \end{bmatrix}
+                +
+                x_2
+                \begin{bmatrix}
+                    0 \\
+                    1 \\
+                    -1
+                \end{bmatrix}
+                +
+                x_3
+                \begin{bmatrix}
+                    0 \\
+                    0 \\
+                    1
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                    x_1 \\
+                    -x_1 \\
+                    0
+                \end{bmatrix}
+                +
+                \begin{bmatrix}
+                    0 \\
+                    x_2 \\
+                    -x_2
+                \end{bmatrix}
+                +
+                \begin{bmatrix}
+                    0 \\
+                    0 \\
+                    x_3
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                    x_1 \\
+                    -x_1 + x_2\\
+                    -x_2 + x_3
+                \end{bmatrix}
+            \end{equation}
+            This can be expressed in the form of \(\boldsymbol{Ax}=\boldsymbol{b}\), by expressing the vectors in matrix form,
+            \begin{equation}
+                \boldsymbol{Ax}=\boldsymbol{b} \quad \rightarrow \quad
+                \begin{bmatrix}
+                    1  & 0  & 0 \\
+                    -1 & 1  & 0 \\
+                    0  & -1 & 1
+                \end{bmatrix}
+                \begin{bmatrix}
+                    x_1 \\
+                    x_2 \\
+                    x_3
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                    x_1 \\
+                    -x_1 + x_2\\
+                    -x_2 + x_3
+                \end{bmatrix}
+            \end{equation}
+            This shows matrix multiplication by columns, compared to the more traditional way of thinking which is multiplication a row at a time using the dot product,
+            \begin{equation}
+                \begin{bmatrix}
+                    1  & 0  & 0 \\
+                    -1 & 1  & 0 \\
+                    0  & -1 & 1
+                \end{bmatrix}
+                \begin{bmatrix}
+                    x_1 \\
+                    x_2 \\
+                    x_3
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                    \boldsymbol{a}_1 \\
+                    \boldsymbol{a}_2 \\
+                    \boldsymbol{a}_3
+                \end{bmatrix}
+                \boldsymbol{x}
+                =
+                \begin{bmatrix}
+                    \boldsymbol{a}_1 . \boldsymbol{x} \\
+                    \boldsymbol{a}_2 . \boldsymbol{x} \\
+                    \boldsymbol{a}_3 . \boldsymbol{x}
+                \end{bmatrix}
+            \end{equation}
+
+        \subsubsection{Inverse Matricies Basics}
+            Matrix multiplication is useful in the expression \(\boldsymbol{Ax}=\boldsymbol{b}\), when solving for 
+            \(\boldsymbol{b}\). 
+            Inverses matrices are needed when solving for \(\boldsymbol{x}\), in the form of 
+            \(\boldsymbol{x}=\boldsymbol{A}^{-1} \boldsymbol{b}\), where \(A^{-1}\) is the inverse of \(\boldsymbol{A}\).
+            
+            \par \hfill \break
+            Using the matrix in the above example, the inverse can be seen as,
+            \begin{equation}
+                \boldsymbol{Ax}=\boldsymbol{b} 
+                \quad \rightarrow \quad
+                \begin{bmatrix}
+                    x_1 \\
+                    -x_1 + x_2\\
+                    -x_2 + x_3
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                    b_1 \\
+                    b_2 \\
+                    b_3
+                \end{bmatrix}
+                \qquad \qquad
+                \boldsymbol{x}=\boldsymbol{A}^{-1} \boldsymbol{b}
+                \quad \rightarrow \quad
+                \begin{bmatrix}
+                    x_1 \\
+                    x_2 \\
+                    x_3
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                    b_1 \\
+                    b_1 + b_2 \\
+                    b_1 + b_2 + b_3
+                \end{bmatrix}
+            \end{equation}
+        
+        \subsubsection{Cyclic Differences}
+            Considering the examples above, the matrix \(\boldsymbol{A}\) is a difference matrix, as the \(\boldsymbol{b}\) solutions are differences of one another.
+            \begin{equation}
+                \begin{bmatrix}
+                    1  & 0  & 0 \\
+                    -1 & 1  & 0 \\
+                    0  & -1 & 1
+                \end{bmatrix}
+                \begin{bmatrix}
+                    x_1 \\
+                    x_2 \\
+                    x_3
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                    x_1 \\
+                    x_2 - x_1\\
+                    x_3 - x_2
+                \end{bmatrix}
+            \end{equation}
+            In order to turn this matrix into a cyclic matrix the \(A_{13}\) is changed to \(-1\) which means that \(b_1 = x_1-x_3\), hence the matrix will now be,
+            \begin{equation}
+                \boldsymbol{C} =
+                \begin{bmatrix}
+                    1  & 0  & -1 \\
+                    -1 & 1  & 0 \\
+                    0  & -1 & 1
+                \end{bmatrix}
+            \end{equation}
+            This is not a triangular matrix, and the three equations have either an infinite number of solutions or, the usual case, no solutions at all.
+        
+        \subsubsection{Independance and Dependance}
+        TODO

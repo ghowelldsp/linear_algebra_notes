@@ -1,0 +1,31 @@
+\documentclass{article}
+
+\usepackage{amsmath, amssymb}
+\usepackage{titlesec}
+\usepackage[a4paper, total={7in, 8in}]{geometry}
+\usepackage{graphicx}
+\graphicspath{ {./imgs/} }
+\setcounter{MaxMatrixCols}{20}
+
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+
+\titlespacing*{\section}{0pt}{8.5ex plus 1ex minus .2ex}{4.3ex plus .2ex}
+
+\title{Introduction To Linear Algebra Notes}
+\author{George Howell}
+\date{\today}
+
+\begin{document}
+    \maketitle
+    \newpage
+
+    \tableofcontents
+    \newpage
+
+    \input{src/ch1_vectors_and_matrices.tex}
+    \pagebreak
+    \input{src/ch2_solving_linear_equations.tex}
+    \pagebreak
+    \input{src/ch3_vector_spaces_and_subspaces.tex}
+
+\end{document}
